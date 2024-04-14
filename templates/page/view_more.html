@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ what}} {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="view__more_box">
+        <h3 class="view__more_what">{{ what }}imiz</h3>
+        <div class="search_box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="search_by_user_name" placeholder="Izlew ati/famılıyası" type="text">
+            <input id="select__category" type="text" list="datalistOptions" placeholder="Qánigeligi">
+            <datalist id="datalistOptions">
+                {% for cat in categories %}
+                    <option value="{{ cat.name }}">
+                {% endfor %}
+            </datalist>
+            <input id="select__city" type="text" placeholder="Mánzil" list="datacity">
+            <datalist id="datacity">
+                {% for location in locations %}
+                    <option value="{{ location.where }}">
+                {% endfor %}
+            </datalist>
+        </div>
+    </div>
+
+    <!-- OUR SPECIALISTS -->
+    <div style="padding-top: 10px;" class="home__specialties">    
+        <!-- TARAW IYELERI -->
+        <div id="taraw_iyeleri" class="row row-cols-1 row-cols-lg-3 row-cols-md-2 align-items-stretch g-4 py-5">
+            {% for user in professionals %}
+                <div class="col professionals_container">
+                    <div class="card specialist_card card-cover h-100 overflow-hidden text-dark rounded-5 shadow-lg">
+                        <div class="specialist__image">
+                            <img src="{{ user.image.url }}" alt="ok" draggable="false">
+                        </div>
+                        <div class="card-body">
+                            <h4>{{ user.last_name }} {{ user.first_name }}</h3>
+                            <span class="specialist_location_icon"><i class="fa-solid fa-location-dot" style="color: #74C0FC;"></i></span>
+                            <span class="specialist_location_address">{{ user.locations.where }}</span>
+                            <div class="specialist__categoriyalar">
+                                {% for specialist in user.specialists.all %}
+                                    <span class="specialist__name">{{ specialist.name }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="specialist__profile_btn">
+                            <a href="#">Profilin kóriw</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- END TARAW IYELERI -->
+    
+    </div>
+    <!-- END OUR SPECIALISTS -->
+</div>
+
+{% endblock content %}

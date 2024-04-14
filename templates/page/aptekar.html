@@ -1,0 +1,884 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApteKar</title>
+    <style>
+            *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        a{
+    color: #212121;
+    text-decoration: none!important;
+    opacity: 1
+}
+
+ul,
+li,
+ol {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+/* banner bg main start */
+
+.banner_bg_main {
+    width: 100%;
+    float: left;
+    height: auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+/* banner bg main end */
+
+
+/* header top section start */
+
+.header_section_top {
+    width: 100%;
+    float: left;
+    background-color: #2b2a29;
+    clip-path: polygon(0 0, 100% 0, 96% 100%, 3% 100%);
+    height: auto;
+    padding: 10px 0px;
+}
+
+.custom_menu {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.custom_menu ul {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}
+
+.custom_menu li {
+    float: left;
+    font-size: 16px;
+    color: #f1f1f1;
+    padding: 6px 10px 0px 10px;
+}
+
+.custom_menu li a {
+    color: #f1f1f1;
+}
+
+.custom_menu li a:hover {
+    color: #f26522;
+}
+
+.logo_o_bazar{
+    font-size: 35px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* header top section end */
+
+
+/* logo section start */
+
+.logo_section {
+    width: 100%;
+    float: left;
+}
+
+.logo {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 30px 0px;
+}
+
+
+/* logo section end */
+
+
+/* header section start */
+
+.header_section {
+    width: 100%;
+    display: flex;
+}
+
+.containt_main {
+    display: flex;
+}
+
+
+/* opennav bar start */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f26522;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.toggle_icon {
+    cursor: pointer;
+    color: #ffffff;
+    order: 2;
+}
+
+.header_box {
+    order: 2;
+    display: flex;
+}
+
+.dropdown,
+.dropleft,
+.dropright,
+.dropup {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+    margin-left: 30px;
+    order: 2;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #30302e;
+    border-color: #30302e;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #30302e;
+    border-color: #30302e;
+}
+
+.show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+
+/* opennav bar end */
+
+
+/* Styles for wrapping the search box start */
+
+.main {
+    flex: 1;
+    margin: 0px 30px;
+    display: inline-block;
+    order: 2;
+}
+
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+
+/* Styles for wrapping the search box end */
+
+.login_menu {
+    display: flex;
+    text-align: right;
+    float: right;
+}
+
+.login_menu ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.login_menu li {
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-top: 4px;
+}
+
+.login_menu li a {
+    color: #ffffff;
+}
+
+.login_menu li a:hover {
+    color: #f26522;
+}
+
+.padding_10 {
+    padding-left: 10px;
+}
+
+
+/* flage css start */
+
+.lang_box {
+    display: flex;
+    float: right;
+    background: #fff;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.nav-link {
+    display: block;
+    padding: .4rem 1rem;
+}
+
+a:hover {
+    color: #f26522;
+    text-decoration: underline;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+nav{
+    display: flex;
+    width: 100%;
+    background: #0a5071;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+
+
+.hello_username__{
+    font-size: 15px;
+    font-weight: 300;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+
+.account_lists__{
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 0;
+    padding-top: 0;
+    color: #fff;
+}
+
+.account_lists__:hover{
+    color: #f26522;
+}
+
+
+
+.my_dashboard___{
+    color: #f26522;
+    font-family: sans-serif;
+}
+
+
+.btn___{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn___:hover{
+    color: #f26522;
+}
+
+
+/* RESPONSE HEADER SECTION */
+
+/*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header-search {
+        padding: 15px 0px;
+    }
+}
+
+
+/*------------------------------------------------------------------- 767px x 599px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 599px) and (max-width: 767px) {
+    .logo {
+        text-align: center;
+    }
+    .cart-content-right {
+        padding-bottom: 5px;
+    }
+    .mg {
+        margin: 0px 0px;
+    }
+    .menu-area-main {
+        height: 256px;
+        overflow-y: auto;
+    }
+    .megamenu>.row [class*="col-"] {
+        padding: 0px;
+    }
+    .menu-area-main .megamenu .men-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .women-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .el-cat {
+        padding: 0px 15px;
+    }
+    .mean-container .mean-nav ul li a.mean-expand {
+        height: 19px;
+    }
+    .category-box.women-box {
+        display: none;
+    }
+    .cart-box {
+        display: inline-block;
+        margin: 0px 30px;
+    }
+    .wish-box {
+        float: none;
+        margin: 0px 30px;
+        display: inline-block;
+    }
+    .menu-add {
+        display: none;
+    }
+    .category-box {
+        display: none;
+    }
+    .mean-container .mean-nav ul li ol {
+        padding: 0px;
+    }
+    .mean-container .mean-nav ul li a {
+        padding: 10px 20px;
+        width: 94.8%;
+    }
+    .mean-container .mean-nav ul li li a {
+        width: 92%;
+        padding: 1em 4%;
+    }
+    .mean-container .mean-nav ul li li li a {
+        width: 100%;
+    }
+    .header-search {
+        padding: 15px 0px;
+    }
+    #collapseFilter.d-md-block {
+        padding: 30px 0px;
+    }
+}
+
+
+/*------------------------------------------------------------------- 599px x 280px ---------------------------------------------------------------------*/
+
+@media only screen and (min-width: 280px) and (max-width: 599px) {
+    .cart-content-right {
+        padding-bottom: 5px;
+    }
+    .megamenu>.row [class*="col-"] {
+        padding: 0px;
+    }
+    .menu-area-main .megamenu .men-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .women-cat {
+        padding: 0px 15px;
+    }
+    .menu-area-main .megamenu .el-cat {
+        padding: 0px 15px;
+    }
+    .mean-container .mean-nav ul li a {
+        padding: 1em 4%;
+        width: 92%;
+    }
+    .mean-container .mean-nav ul li li a {
+        width: 90%;
+        padding: 1em 5%;
+    }
+    .mean-container .sub-full.megamenu-categories ol li a {
+        padding: 5px 0px;
+        text-transform: capitalize;
+        width: 100%;
+    }
+    .megamenu .sub-full.megamenu-categories .women-box .banner-up-text a {
+        width: auto;
+        border: none;
+        float: none;
+    }
+    .menu-area-main {
+        height: 45px;
+        overflow-y: auto;
+    }
+    .mean-container .mean-nav ul li a.mean-expand {
+        top: 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .banner_bg_main {
+        background-size: 100% 100%;
+    }
+    .tshirt_img {
+        margin: 20px 0px;
+        min-height: 360px;
+    }
+    #main_slider a.carousel-control-next {
+        right: 40px;
+        top: 110%;
+    }
+    #main_slider a.carousel-control-prev {
+        left: 40px;
+        top: 110%;
+    }
+    .electronic_img {
+        margin: 20px 0px;
+        min-height: 280px;
+    }
+    #electronic_main_slider a.carousel-control-next {
+        right: 40px;
+        top: 110%;
+    }
+    #electronic_main_slider a.carousel-control-prev {
+        left: 40px;
+        top: 110%;
+    }
+    .jewellery_img {
+        margin: 20px 0px;
+        min-height: 0;
+    }
+    #jewellery_main_slider a.carousel-control-prev {
+        left: 40px;
+        top: 70%;
+    }
+    #jewellery_main_slider a.carousel-control-next {
+        right: 40px;
+        top: 70%;
+    }
+    .input_bt {
+        width: 80%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .banner_bg_main {
+        background-size: 100% 100%;
+    }
+    .dropdown {
+        display: none;
+    }
+    .tshirt_img {
+        margin: 20px 0px;
+        min-height: 320px;
+    }
+    .banner_taital {
+        font-size: 50px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .banner_bg_main {
+        background-size: 100% 100%;
+    }
+    
+    .custom_menu {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .custom_menu a{
+        font-size: 14px;
+    }
+  
+    .containt_main {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .toggle_icon {
+        cursor: pointer;
+        order: 2;
+    }
+    .main {
+        margin: 0px 0px 0px 0px;
+    }
+    .main {
+        margin: 0px 0px;
+    }
+    .input-group {
+        width: auto;
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+    .header_box {
+        order: 1;
+        display: flex;
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 6px;
+        justify-content: space-between;
+    }
+    .dropdown {
+        display: none;
+    }
+    .login_menu ul li {
+        float: right;
+        font-size: 14px;
+        margin-top: 6px;
+    }
+    .nav-link {
+        padding: .4rem 0px;
+        color: #fff;
+    }
+    .lang_box {
+        background-color: transparent;
+    }
+    .banner_taital {
+        font-size: 40px;
+    }
+   
+}
+
+@media (max-width: 575px) {
+    .banner_bg_main {
+        background-size: cover;
+    }
+    .containt_main {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .toggle_icon {
+        cursor: pointer;
+        order: 2;
+    }
+    .main {
+        margin: 0px 0px 0px 0px;
+    }
+    .main {
+        margin: 0px 0px;
+    }
+    .input-group {
+        width: auto;
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+    .header_box {
+        order: 1;
+        display: flex;
+        width: 100%;
+        margin-top: 7px;
+        margin-bottom: 20px;
+        justify-content: space-between;
+    }
+    .dropdown {
+        display: none;
+    }
+    .login_menu ul li {
+        float: right;
+        font-size: 14px;
+        margin-top: 6px;
+    }
+    .nav-link {
+        padding: .4rem 0px;
+        color: #fff;
+    }
+    .dashboard_login_logout{
+        margin-top: 5px;
+    }
+    .banner_taital {
+        font-size: 24px;
+    }
+
+    .custom_menu {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .custom_menu a{
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+}
+
+/* END RESPONSE HEADER SECTION */
+    .logo a{
+        font-family: monospace;
+    }
+    .logo a:hover{
+        color: #fff;
+    }
+    .wishlist_btn__{
+    border: none;
+    background: none;
+    }
+
+    .wishlist_btn__:hover{
+        color: red;
+    }
+
+    .product__name_{
+    color: #0a5071;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 900;
+    text-decoration: none;
+    
+}
+
+    .product__name_:hover{
+        color: darkorange;
+    }
+
+    .footer__bg{
+        background-color: #0a5071;
+    }
+
+    .footer__categories ul li a{
+    font-size: 13px;
+    color: #fff;
+    }
+
+    .footer__categories ul li a:hover{
+        color: darkorange;
+    }
+
+    
+
+    </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <nav>
+        <div class="banner_bg_main pb-5">
+          <!-- header top section start -->
+          <div class="container">
+             <div class="header_section_top">
+                <div class="row">
+                   <div class="col-sm-12">
+                      <div class="custom_menu">
+                         <ul>
+                            <li><a href="/" class="font-monospace">e-Consultations</a></li>
+                            <li><a href="#" class="font-monospace">Bizler haqqimizda</a></li>
+                            <li><a href="#" class="font-monospace">Xizmetler</a></li>
+                            <li><a href="#" class="font-monospace">FAQs</a></li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!-- header top section start -->
+          <!-- logo section start -->
+          <div class="logo_section">
+             <div class="container">
+                <div class="row">
+                   <div class="col-sm-12">
+                      <div class="logo"><a href="#" class="text-decoration-none logo_o_bazar font-monospace"><b>Apte</b>Kar</a></div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!-- logo section end -->
+          <!-- header section start -->
+          <div class="header_section">
+             <div class="container">
+                <div class="containt_main">
+      
+                   <div class="main">
+                      <!-- Another variation with a button -->
+                      <form action="" method="get">
+                        <div class="input-group">
+                          <input type="text" name="q" class="form-control" placeholder="Search">
+                          <div class="input-group-append">
+                             <button class="btn btn-secondary" type="submit" style="background-color: #f23322; border-color:#f22222; font-size: 25px;">
+                                <i class="fa fa-search"></i>
+                             </button>
+                          </div>
+                        </div>
+                      </form>
+                   </div>
+                   <div class="header_box">
+            
+                      <!-- WISHLIST & BASKET -->
+                      <div class="login_menu">
+                         <ul>
+                          <!-- WISHLIST BUTTON -->
+                            <li>
+                              <a class="position-relative icon__" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                                <span id="wishlist_how_many" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                  
+                                      0
+    
+                                  <span class="visually-hidden">unread messages</span>
+                                </span>
+                              </a>
+                            </li>
+                             <!-- END WISHLIST BUTTON -->
+                             <!-- BASKET BUTTON -->
+                            <li class="mx-2">
+                              <a class="position-relative icon__" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                </svg>
+                                <span id="total_quantity" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                  
+                                      0
+        
+                                  <span class="visually-hidden">unread messages</span>
+                                </span>
+                              </a>
+                            </li>
+                            <!-- END BASKET BUTTON -->
+                         </ul>
+                      </div>
+                      <!-- END WISHLIST & BASKET -->
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!-- header section end -->
+       </div>
+      </nav>
+           
+
+
+      <!-- All products  -->
+<div class="bg-light mb-5 p-3 mt-5">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-3">
+      {% for product in products %}
+      <div class="col">
+        <div class="card shadow-sm border_radius">
+          
+              <img src="{{ product.image.url }}" alt="{{ image.title }}" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></img>
+        
+  
+          <!-- // Images  -->
+          <div class="card-body">
+            <p class="text-center"><a href="#" class="card-text product__name_ ">{{ product.title }}</a></p>
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <div class="btn-group">
+                <!-- wishlist btn -->
+                <button type="button" id="wishlist-button" data-id="1" class="wishlist_btn__  text-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                      </svg>
+                </button>
+                <!-- wishlist -->
+              </div>
+              <small class="font-monospace text-muted" style="font-size: 15px;"><b>${{ product.price }}</b></small>
+            </div>
+            <a href="#" style="background-color: #0a5071; color: #fff;" class="btn buy_one_click mt-4 w-100 font-monospace">Satip aliw</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+      <!-- end products -->
+
+      <div class="container-fluid footer__bg text-white">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5  border-top">
+          <div class="col mb-3">
+            <div class="logo"><a href="#" class="text-decoration-none logo_o_bazar"><b>Apte</b>Kar</a></div>
+            <p class="text-white" style="padding-left: 60px; font-size: 20px;">&copy; 2024</p>
+          </div>
+      
+          <div class="col mb-3">
+      
+          </div>
+      
+          <div class="col mb-3 mt-3 footer__categories">
+            <h5 class="font-monospace">Company</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="/" class="nav-link p-0 font-monospace">e-Consultations</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 font-monospace">About Us</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 font-monospace">Delivery Service</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 font-monospace">FAQs</a></li>
+            </ul>
+          </div>
+      
+          <div class="col mb-3 mt-3  footer__categories">
+            <h5 class="font-monospace">Resources</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 font-monospace">Home</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 font-monospace">Features</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 font-monospace">Pricing</a></li>
+            </ul>
+          </div>
+        </footer>
+    </div>
+    
+</body>
+</html>

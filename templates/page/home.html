@@ -1,0 +1,401 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <!-- MAIN HOME -->
+    <div class="banner">
+        <img src="{% static 'images/banner.jpg'%}" alt="banner">
+        <div class="banner_text">
+            <p>Óz kásibiniń qánigelerinen <br> onlayn konsultaciya aliń</p>
+        </div>
+    </div>
+    <!-- END MAIN HOME -->
+
+    <div class="main__home">
+        <!-- OUR JETISKENLIK -->
+        <div class="container row justify-content-lg-between justify-content-md-center home__jetiskenlik">
+            <div class="col-4 offset-lg-1 col-md-4 col-lg-2 jetiskenlik__info">
+                <span class="home_jetiskenlik_icon"><i class="fa-regular fa-star star__icon"></i></span>
+                <div class="jetiskenlik__about">
+                    <h4>15+ jil </h4>
+                    <span>Tájiriybe</span>
+                </div>
+            </div>
+            <div class="col-4 col-md-4 col-lg-2 jetiskenlik__info">
+                <span class="home_jetiskenlik_icon"><i class="fa-solid fa-stethoscope stethoscope__icon"></i></span>
+                <div class="jetiskenlik__about">
+                    <h4>50+</h4>
+                    <span>Medicinalıq qánigeler</span>
+                </div>
+            </div>
+            <div class="col-4 col-md-4 col-lg-2 jetiskenlik__info">
+                <span class="home_jetiskenlik_icon"><i class="fa-solid fa-gavel lawyer__icon"></i></span>
+                <div class="jetiskenlik__about">
+                    <h4>34+</h4>
+                    <span>Yuridikaliq qánigeler</span>
+                </div>
+            </div>
+            <div class="col-4 col-md-6 col-lg-2 jetiskenlik__info">
+                <span class="home_jetiskenlik_icon"><i class="fa-regular fa-face-smile face__icon"></i></span>
+                <div class="jetiskenlik__about">
+                    <h4>10.000+</h4>
+                    <span>Qanaatlanǵan buyirtpashilar</span>
+                </div>
+            </div>
+            <div class="col-4 col-md-6 col-lg-2 jetiskenlik__info">
+                <span class="home_jetiskenlik_icon"><i class="fa-solid fa-video video__icon"></i></span>
+                <div class="jetiskenlik__about">
+                    <h4>40.000 min</h4>
+                    <span>onlayn-konsultaciyalar</span>
+                </div>
+            </div>
+        </div>
+        <!-- END OUR JETISKENLIK -->
+
+        <!-- OUR SPECIALISTS -->
+        <div class="container home__specialties">
+            <h3>Tiyisli shıpakerdi yamasa yuristti tańlań hám onlayn konsultaciyaǵa buyırtpa etiń</h3>
+            <div class="card__tarawlar">
+                {% for taraw in categories %}
+                    <span class="category__link" data-category="{{ taraw.name }}" >{{ taraw.name }}</span>
+                {% endfor %}
+            </div>
+            
+            <!-- TARAW IYELERI -->
+            <div id="taraw_iyeleri" class="row row-cols-1 row-cols-lg-3 row-cols-md-2 align-items-stretch g-4 py-5">
+                {% for user in professionals %}
+                    <div class="col professionals_container">
+                        <div class="card specialist_card card-cover h-100 overflow-hidden text-dark rounded-5 shadow-lg">
+                            <div class="specialist__image position-relative">
+                                <img src="{{ user.image.url }}" alt="ok" draggable="false">
+                                <span class="home_jetiskenlik_icon specialist_video_icon"><i class="fa-solid fa-video video__icon"></i></span>
+                            </div>
+                            <div class="card-body">
+                                <h4>{{ user.last_name }} {{ user.first_name }}</h3>
+                                <span class="specialist_location_icon"><i class="fa-solid fa-location-dot" style="color: #74C0FC;"></i></span>
+                                <span class="specialist_location_address">{{ user.locations.where }}</span>
+                                <div class="specialist__categoriyalar">
+                                    {% for specialist in user.specialists.all %}
+                                        <span class="specialist__name">{{ specialist.name }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="specialist__profile_btn">
+                                <a href="#">Profilin kóriw</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- END TARAW IYELERI -->
+            
+        </div>
+        <!-- END OUR SPECIALISTS -->
+        <div class="specialist__view_more">
+            <a id="view-more-link" href="{% url 'page:view_more' %}?what=Shipakerler">Kóbirek kóriw <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- OUR SERVICES -->
+        <div class="container home__services">
+            <h3>Xizmetlerimiz</h3>
+            <div class="row home__service_card">
+                <div class="col-12 col-lg-6 home__service__img">
+                    <img src="{% static 'images/service_image.avif'%}" alt="service_image">
+                </div>
+                <div class="col-12 col-lg-6 home__service__info">
+                    <h3>Onlayn konsultatsiya</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check" style="color: #63E6BE;"></i> 
+                            <span>Platforma arqalı shıpakerler yamasa yuristler menen onlayn máslahátlesiw</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check" style="color: #63E6BE;"></i> 
+                            <span>Ózińizge unaǵan qánigeni tańlaw</span>
+                        </li>
+                    </ul>
+                    <a href="#">Kóbirek maǵlıwmat alıw</a>
+                </div>
+            </div>      
+            <!-- OFFLINE CONSULTATION -->
+            <div class="row home__service_card">
+                <div class="col-12 col-lg-6 home__service__info">
+                    <h3>Oflayn konsultatsiya</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check" style="color: #63E6BE;"></i> 
+                            <span>Ushirasiw waqti ha'm ornin aldinnan belgilew</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check" style="color: #63E6BE;"></i> 
+                            <span>Ózińiz tańlaǵan qániyge iyesi menen ushırasıw </span>
+                        </li>
+                    </ul>
+                    <a href="#">Kóbirek maǵlıwmat alıw</a>
+                </div>
+                <div class="col-12 col-lg-6 home__service__img">
+                    <img src="{% static 'images/oflayn_service_image.jpg'%}" alt="offline_image">
+                </div>
+            </div>
+            <!-- APTEKAR -->
+            <div class="row home__service_card">
+                <div class="col-12 col-lg-6 home__service__img">
+                    <img src="{% static 'images/aptekar_for_service.jpg'%}" alt="aptekar_image">
+                </div>
+                <div class="col-12 col-lg-6 home__service__info">
+                    <h3 style="font-size: 40px; font-weight: 900;"><b style="color: green;">Apte</b><b style="color: #0a5071;">Kar</b></h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check" style="color: #63E6BE;"></i> 
+                            <span>Eń arzan dárini tabiw mumkinshiligi</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check" style="color: #63E6BE;"></i> 
+                            <span>Kerekli dárixananiń aniq mánzilin biliw</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check" style="color: #63E6BE;"></i> 
+                            <span>Jetkizip beriw xizmeti</span>
+                        </li>
+                    </ul>
+                    <a href="{% url 'page:aptekar'%}">Dárilerdi izlew</a>
+                </div>
+            </div>
+        </div>
+        <!-- END OUR SERVICES -->
+
+        <!-- HOW IT WORKS -->
+        <div class="container home__specialties">
+            <h3>Qanday isleydi</h3>
+            <p>Platformadan paydalanıw boyınsha kórsetpeler</p>
+            <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 align-items-stretch g-4 py-5">
+                <div class="col">
+                    <div class="card how_it_works__card how_it_works__card_for_register card-cover h-100 overflow-hidden">
+                        <div class="how_it_works__icon position-relative">
+                            <i class="fa-solid fa-person" style="color: darkorange;"></i>
+                            <i class="fa-solid fa-check how_it_works__check_icon" style="color: darkorange;"></i>
+                        </div>
+                        <div class="card-body how_it_works_body">
+                            <h4>1-qádem</h4>
+                            <p><b>e-Consultations</b> veb-saytı arqali dizimnen ótiw</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card how_it_works__card how_it_works__card_for_search card-cover h-100 overflow-hidden">
+                        <div class="how_it_works__icon position-relative">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #63E6BE;"></i>
+                        </div>
+                        <div class="card-body how_it_works_body">
+                            <h4>2-qádem</h4>
+                            <p>"Kóbirek kóriw" bóliminde kerekli qánigeni qıdırıw </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card how_it_works__card how_it_works__card_for_book_date card-cover h-100 overflow-hidden">
+                        <div class="how_it_works__icon position-relative">
+                            <i class="fa-solid fa-calendar-days" style="color: #78C4BF;"></i>
+                        </div>
+                        <div class="card-body how_it_works_body">
+                            <h4>3-qádem</h4>
+                            <p>Kún hám waqtın saylań onlayn konsultaciya ushin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card how_it_works__card how_it_works__card_for_recevied card-cover h-100 overflow-hidden">
+                        <div class="how_it_works__icon position-relative">
+                            <i class="fa-regular fa-calendar-check"></i>
+                        </div>
+                        <div class="card-body how_it_works_body">
+                            <h4>4-qádem</h4>
+                            <p>Buyirtpa berilgennen keyin ushırasıw haqqında tastıyıqlawshi hújjet alıw</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- END HOW IT WORKS -->
+
+        <!-- WHY CHOOSE ECONSULTATION -->
+        <div class="container home__specialties">
+            <h3>Ne ushın e-Consultations?</h3>
+            <div class="row home__service_card">
+                <div class="col-12 col-lg-6 home__service__img">
+                    <img src="{% static 'images/why_choose_image.jpg'%}" alt="why_choose_image">
+                </div>
+                <div class="col-12 col-lg-6 why_choose_card">
+                    <ul>
+                        <li>
+                            <div class="why_choose_box">
+                                <i class="fa-solid fa-check" style="color: #63E6BE;"></i>
+                                <div class="why_choose_about">
+                                    <h5>Hámmesi bir platformada</h5>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="why_choose_box">
+                                <i class="fa-solid fa-check" style="color: #63E6BE;"></i>
+                                <div class="why_choose_about">
+                                    <h5>Waqt tejew</h5>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="why_choose_box">
+                                <i class="fa-solid fa-check" style="color: #63E6BE;"></i>
+                                <div class="why_choose_about">
+                                    <h5>Joqarı sapa</h5>
+                                    <span>Sirt elli jetekshi qánigelerden joqarı dárejedegi konsultaciya aliw</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- END WHY CHOOSE eCONSULTATION -->
+        
+        <!-- FEEDBACK  -->
+        <div class="container home__specialties">
+            <!-- 
+                https://www.youtube.com/watch?v=YunLfczBbkY
+
+                    Joqaridagi video boyisha ko'rdim awzina siyeyin..
+             -->
+            <h3>Pikirler</h3>
+            <p>Paydalanıwshılar biz haqqımızda qanday pikirde</p>
+            <div class="home__feedback_card">
+                <div class="feedback__wrapper">
+                    <div class="feedback__carousel owl-carousel">
+                        {% for user in users %}
+                            <div class="card specialist_card card-cover feedback__card">
+                                <img src="{{ user.image.url }}" alt="feedback_image">
+                                <h4 class="feedback__user_name">{{ user.user_name}}</h4>
+                                <div class="feedback__stars">
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    {% if user.star == 5 %}
+                                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    {% else %}
+                                        <i class="fa-solid fa-star"></i>
+                                    {% endif %}
+                                </div>
+                                <p class="feedback__about">{{ user.feedback }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                     
+            </div>
+        </div>
+        <!-- END FEEDBACK  -->
+
+        <!-- BLOG AND NEWS  -->
+        <div class="container home__specialties">
+            <h3>Blog hám jańalıqlar</h3>
+            
+        </div>
+        <!-- END BLOG AND NEWS  -->
+    </div>
+
+</div>
+
+<script>
+    // FEEDBACK
+    $(".feedback__carousel").owlCarousel({
+        margin: 10,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 4000,  // 4000 ms = 4 sec
+        autoplayHoverPause: true,
+        responsive: {
+            0:{
+                items: 1,
+                nav: false
+            },
+            600:{
+                items: 2,
+                nav: false
+            },
+            1000:{
+                items: 3,
+                nav: false
+            },
+        }
+    });
+    // END FEEDBACK
+
+    // OUR SPECIALIST
+    document.addEventListener("DOMContentLoaded", function(){
+        const categoryLinks = document.querySelectorAll(".category__link");
+        const professionalsContainer = document.querySelectorAll('.professionals_container');
+        const taraw_iyeleri = document.getElementById("taraw_iyeleri")
+        const viewMoreLink = document.getElementById("view-more-link");
+
+        categoryLinks.forEach(link => {
+            link.addEventListener("click", function(event){
+                event.preventDefault();
+                const category = this.dataset.category;
+                
+                viewMoreLink.href = `{% url 'page:view_more' %}?what=${category}`;
+    
+
+                fetch(`/?category=${category}`) // Make request
+                    
+                    .then(response => response.json())
+                    .then(data =>{
+                        // SUCCESS
+
+                        // WHEN USER CLICKED CATEGORY, THIS GONNA REMOVE ALL OLD CARDS
+                        professionalsContainer.forEach(container => {
+                            container.innerHTML = "";
+                        })
+
+                        data.professionals.forEach(obj => {
+                            const card = document.createElement("div");
+                            card.classList.add("col")
+                            card.classList.add("professionals_container")
+                            card.innerHTML = `
+                                        <div class="card specialist_card card-cover h-100 overflow-hidden text-dark rounded-5 shadow-lg">
+                                        <div class="specialist__image position-relative">
+                                            <img src="${ obj.image }" alt="ok" draggable="false">
+                                            <span class="home_jetiskenlik_icon specialist_video_icon"><i class="fa-solid fa-video video__icon"></i></span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4>${ obj.last_name } ${ obj.first_name }</h3>
+                                            <span class="specialist_location_icon"><i class="fa-solid fa-location-dot" style="color: #74C0FC;"></i></span>
+                                            <span class="specialist_location_address">${ obj.location }</span>
+                                            <div class="specialist__categoriyalar">
+                                                ${obj.specialists.map(specialist => `
+                                                    <span class="specialist__name">${specialist}</span>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                        <div class="specialist__profile_btn">
+                                            <a href="#">Profilin kóriw</a>
+                                        </div>
+                                    </div>
+                            `;
+                            taraw_iyeleri.appendChild(card);
+                        });
+
+                    })
+                    // ERROR
+                    .catch(error => {
+                        console.log("Error", error)
+                    })
+
+            })
+        })
+
+    })
+    // END OUR SPECIALIST
+</script>
+{% endblock content %}
